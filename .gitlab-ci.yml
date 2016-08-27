@@ -16,7 +16,7 @@
 variables:
   DOCKER_VOLUMES:  ""
   DOCKER_IMG:      "docker.thezengarden.net/c7base"
-  DOCKER_TAG_DEV:  "dev-16827-410"
+  DOCKER_TAG_DEV:  "dev-16827-421"
   DOCKER_TAG_PROD: "prod"
 
 
@@ -42,6 +42,7 @@ stages:
   script:
     - echo "docker tag `docker images | grep "${DOCKER_IMG}" | grep "${DOCKER_TAG_DEV}" | awk -F' ' '{print $3}'` \"${DOCKER_IMG}:${DOCKER_TAG_PROD}\""
     - docker tag `docker images | grep "${DOCKER_IMG}" | grep "${DOCKER_TAG_DEV}" | awk -F' ' '{print $3}'` "${DOCKER_IMG}:${DOCKER_TAG_PROD}"
+    - docker push $DOCKER_IMG
 
 
 dev:
