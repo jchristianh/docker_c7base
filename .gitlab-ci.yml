@@ -16,8 +16,8 @@
 variables:
   DOCKER_VOLUMES:  ""
   DOCKER_IMG:      "docker.thezengarden.net/c7base"
-  DOCKER_TAG_DEV:  "dev-16827-421"
-  DOCKER_TAG_PROD: "prod"
+  DOCKER_TAG_DEV:  "dev"
+  DOCKER_TAG_PROD: "latest"
 
 
 stages:

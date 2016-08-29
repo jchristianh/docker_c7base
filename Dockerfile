@@ -25,3 +25,9 @@ COPY epel.repo /etc/yum.repos.d/
 ########################################
 RUN yum update -y
 
+
+# Link timezone to US/Eastern
+#############################
+RUN rm /etc/localtime \
+    && ln -s /usr/share/zoneinfo/US/Eastern /etc/localtime
+
