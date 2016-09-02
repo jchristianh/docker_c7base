@@ -57,8 +57,3 @@ prod:
     - docker
     - prod
   <<: *link_prod
-
-
-after_script:
-    - docker ps -a | grep -i exited | awk -F' ' '{print $1}' | grep -vi container | xargs docker rm
-    - docker ps -a | grep -i dead | awk -F' ' '{print $1}' | grep -vi container | xargs docker rm
