@@ -31,7 +31,7 @@ stages:
     - docker
     - dev
   script:
-    - docker build -t "${DOCKER_IMG}:${DOCKER_TAG_DEV}" "${CI_PROJECT_DIR}"
+    - docker build --no-cache -t "${DOCKER_IMG}:${DOCKER_TAG_DEV}" "${CI_PROJECT_DIR}"
 
 
 .job_template: &link_prod
@@ -57,3 +57,4 @@ prod:
     - docker
     - prod
   <<: *link_prod
+
