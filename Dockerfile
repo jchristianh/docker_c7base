@@ -36,3 +36,7 @@ RUN rm /etc/localtime \
 #####################
 COPY env/root_bashrc /root/.bashrc
 
+
+# Run quick cleanup to preserve some image size:
+################################################
+RUN yum clean all
