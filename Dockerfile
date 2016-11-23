@@ -1,6 +1,6 @@
 ###################################
 # The Zen Garden :: CentOS 7 Base #
-#     Build Tag: 161108-1417      #
+#     Build Tag: 161123-1852      #
 ###################################
 FROM docker.io/centos:7.2.1511
 MAINTAINER Chris Hammer <chris@thezengarden.net>
