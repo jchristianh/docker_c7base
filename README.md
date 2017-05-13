@@ -11,11 +11,6 @@ As this is based on the Docker.io CentOS image, you will need that image in orde
 - Docker.io CentOS 7 Base:
   CentOS 7.2.1511 / docker pull docker.io/centos:7.2.1511
 
-Running the Container
----------------------
-
-
-
 License
 -------
 
