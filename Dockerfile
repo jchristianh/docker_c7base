@@ -1,8 +1,8 @@
 ###################################
 # The Zen Garden :: CentOS 7 Base #
-#     Build Tag: 170513-0046      #
+#     Build Tag: 171012-1133      #
 ###################################
-FROM docker.io/centos:7.2.1511
+FROM docker.io/centos:7.4.1708
 MAINTAINER Chris Hammer <chris@thezengarden.net>
 
 
@@ -23,13 +23,14 @@ RUN rpm -ivh /tmp/rpmforge-release-0.5.3-1.el7.rf.x86_64.rpm \
 # (My Local repos; replace/uncomment if
 #  you wish to use custom repos...)
 ########################################
-#COPY repos/CentOS-Base.repo /etc/yum.repos.d/
-#COPY repos/epel.repo /etc/yum.repos.d/
+COPY repos/CentOS-Base.repo /etc/yum.repos.d/
+COPY repos/epel.repo /etc/yum.repos.d/
 
 
 # Update base and install required deps:
 ########################################
-RUN yum update -y
+RUN yum clean all \
+    yum update -y
 
 
 # Link timezone to US/Eastern
