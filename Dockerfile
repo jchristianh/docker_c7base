@@ -1,6 +1,6 @@
 ###################################
 # The Zen Garden :: CentOS 7 Base #
-#     Build Tag: 171012-1133      #
+#     Build Tag: 171012-1140      #
 ###################################
 FROM docker.io/centos:7.4.1708
 MAINTAINER Chris Hammer <chris@thezengarden.net>
@@ -30,7 +30,7 @@ COPY repos/epel.repo /etc/yum.repos.d/
 # Update base and install required deps:
 ########################################
 RUN yum clean all \
-    yum update -y
+    && yum update -y
 
 
 # Link timezone to US/Eastern
