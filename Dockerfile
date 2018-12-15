@@ -1,22 +1,14 @@
 ###################################
 # The Zen Garden :: CentOS 7 Base #
-#     Build Tag: 180608-1533      #
+#     Build Tag: 181215-126       #
 ###################################
-FROM docker.io/centos:7.5.1804
+FROM docker.io/centos:7.6.1810
 MAINTAINER Chris Hammer <chris@thezengarden.net>
 
 
-# Copy core files required for packages
-# and Chef client to function:
-#######################################
-COPY pkgs/rpmforge-release-0.5.3-1.el7.rf.x86_64.rpm /tmp/
-COPY pkgs/epel-release-latest-7.noarch.rpm /tmp/
-
-
-# Install RPM Forge/EPEL:
+# Install EPEL:
 #####################################
-RUN rpm -ivh /tmp/rpmforge-release-0.5.3-1.el7.rf.x86_64.rpm \
-    && rpm -ivh /tmp/epel-release-latest-7.noarch.rpm
+RUN yum install -y epel-release
 
 
 # Setup Container to use our Local Repo:
@@ -30,7 +22,9 @@ COPY repos/epel.repo /etc/yum.repos.d/
 # Update base and install required deps:
 ########################################
 RUN yum clean all \
-    && yum update -y
+    && rm -rfv /var/cache/yum \
+    && yum update -y \
+    && yum install -y net-tools iproute yum-utils bind-utils traceroute telnet rsync man bc bzip2 unzip zip tar file git deltarpm
 
 
 # Link timezone to US/Eastern
